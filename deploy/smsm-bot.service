@@ -1,0 +1,32 @@
+[Unit]
+Description=SMSM Festival Ops Discord bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=smsm
+WorkingDirectory=/opt/smsm/app
+EnvironmentFile=/opt/smsm/app/.env
+Environment=SMSM_STATE_DIR=/opt/smsm/data
+ExecStart=/opt/smsm/app/.venv/bin/python -u bot.py
+
+Restart=always
+RestartSec=5
+# Discord rate-limits command sync; don't hammer it after repeated crashes.
+StartLimitIntervalSec=300
+StartLimitBurst=10
+
+# The bot only ever writes to its state dir.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+ReadWritePaths=/opt/smsm/data
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=smsm-bot
+
+[Install]
+WantedBy=multi-user.target

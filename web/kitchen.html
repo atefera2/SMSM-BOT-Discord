@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KITCHEN — SMSM Festival</title>
+<style>
+  :root{
+    --bg:#0a0a0c; --card:#16161a; --edge:#26262e; --txt:#fff; --dim:#7c7c8a;
+    --good:#1e9e52; --low:#d9a005; --need:#e0342b; --out:#6b1410; --prep:#1d72c2;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    background:var(--bg);color:var(--txt);
+    font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    overflow:hidden;-webkit-font-smoothing:antialiased;
+  }
+  header{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:1.1vh 1.6vw;border-bottom:3px solid var(--edge);height:9vh;
+  }
+  h1{font-size:3.4vh;letter-spacing:.14em;font-weight:800}
+  h1 small{color:var(--dim);font-size:2vh;letter-spacing:.06em;font-weight:600;margin-left:1vw}
+  .clock{font-size:3.6vh;font-weight:800;font-variant-numeric:tabular-nums}
+  .pulse{
+    display:inline-block;width:1.3vh;height:1.3vh;border-radius:50%;
+    background:var(--good);margin-right:.7vw;vertical-align:middle;
+  }
+  .pulse.dead{background:var(--need);animation:blink .8s infinite}
+  @keyframes blink{50%{opacity:.15}}
+
+  /* URGENT STRIP — anything that needs action, biggest text on screen */
+  #urgent{display:flex;flex-wrap:wrap;gap:.8vw;padding:1vh 1.6vw}
+  #urgent:empty{display:none}
+  .big{
+    flex:1 1 30%;min-width:24vw;border-radius:1.4vh;padding:1.4vh 1.6vw;
+    display:flex;align-items:center;justify-content:space-between;gap:1vw;
+    box-shadow:0 .6vh 2.4vh rgba(0,0,0,.55);
+  }
+  .big .nm{font-size:6.4vh;font-weight:900;letter-spacing:.02em;line-height:1}
+  .big .st{font-size:2.6vh;font-weight:800;letter-spacing:.14em;opacity:.95;margin-top:.5vh}
+  .big .meta{font-size:1.9vh;opacity:.8;margin-top:.4vh;font-weight:600}
+  .big.need{background:var(--need);animation:throb 1.6s ease-in-out infinite}
+  .big.out{background:var(--out);border:.4vh solid var(--need)}
+  .big.low{background:var(--low);color:#1a1400}
+  @keyframes throb{0%,100%{filter:brightness(1)}50%{filter:brightness(1.35)}}
+
+  /* PREPPING STRIP */
+  #prep{display:flex;flex-wrap:wrap;gap:.7vw;padding:0 1.6vw 1vh}
+  #prep:empty{display:none}
+  .pchip{
+    background:var(--prep);border-radius:1vh;padding:.9vh 1.2vw;
+    display:flex;align-items:baseline;gap:.8vw;
+  }
+  .pchip .n{font-size:3.4vh;font-weight:900}
+  .pchip .e{font-size:2.2vh;font-weight:700;opacity:.9}
+  .pchip .cd{font-size:3.4vh;font-weight:900;font-variant-numeric:tabular-nums}
+  .pchip.late{background:#8a4b00;border:.3vh solid var(--low);animation:throb 1.6s ease-in-out infinite}
+  .waitbadge{
+    font-size:2.2vh;font-weight:900;background:rgba(0,0,0,.32);
+    border-radius:.8vh;padding:.5vh 1vw;white-space:nowrap;
+  }
+  .mutebar{
+    background:var(--low);color:#1a1400;font-size:2.4vh;font-weight:900;
+    text-align:center;padding:.7vh;letter-spacing:.1em;
+  }
+
+  /* MAIN GRID — everything else */
+  #grid{
+    display:grid;gap:.7vw;padding:0 1.6vw 1.6vh;
+    grid-template-columns:repeat(var(--cols,4),1fr);
+    align-content:start;overflow:hidden;flex:1;
+  }
+  .cell{
+    background:var(--card);border:.3vh solid var(--edge);border-radius:1vh;
+    padding:1vh 1vw;border-left-width:.9vw;
+  }
+  .cell .n{font-size:2.9vh;font-weight:800;line-height:1.05}
+  .cell .s{font-size:1.7vh;font-weight:700;letter-spacing:.1em;margin-top:.4vh;color:var(--dim)}
+  .cell.good{border-left-color:var(--good)}
+  .cell.prepping{border-left-color:var(--prep)}
+  .cell.ready{border-left-color:var(--good)}
+  .cell.stale{opacity:.55}
+  #wrap{display:flex;flex-direction:column;height:91vh}
+  .allclear{
+    text-align:center;padding:5vh 0;font-size:7vh;font-weight:900;
+    color:var(--good);letter-spacing:.1em;
+  }
+  .allclear span{display:block;font-size:2.4vh;color:var(--dim);letter-spacing:.14em;margin-top:1vh}
+</style>
+</head>
+<body>
+<header>
+  <h1><span class="pulse" id="pulse"></span>KITCHEN <small id="fest"></small></h1>
+  <div class="clock" id="clock">--:--</div>
+</header>
+<div id="mute" class="mutebar" style="display:none"></div>
+<div id="wrap">
+  <div id="urgent"></div>
+  <div id="prep"></div>
+  <div id="grid"></div>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+let misses = 0;
+
+function esc(s){ return (s||"").replace(/[<>&]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[c])); }
+
+async function tick(){
+  try{
+    const r = await fetch('/api/state', {cache:'no-store'});
+    const d = await r.json();
+    misses = 0; $('#pulse').classList.remove('dead');
+    render(d);
+  }catch(e){
+    if(++misses > 3) $('#pulse').classList.add('dead');
+  }
+}
+
+function render(d){
+  $('#fest').textContent = d.festival;
+  $('#clock').textContent = d.clock;
+  $('#grid').style.setProperty('--cols', d.columns || 4);
+
+  const shown = d.items.filter(i => i.screen);
+  const urgent = shown.filter(i => i.level==='need' || i.level==='out')
+                      .sort((a,b) => b.rank - a.rank);
+  const low    = shown.filter(i => i.level==='low');
+  const prep   = shown.filter(i => i.level==='prepping');
+  const rest   = shown.filter(i => ['good','ready'].includes(i.level));
+
+  const mute = $('#mute');
+  if (d.muted_minutes > 0) {
+    mute.style.display = 'block';
+    mute.textContent = `SPEAKER MUTED — ${d.muted_minutes} MIN LEFT · SCREEN STILL LIVE`;
+  } else { mute.style.display = 'none'; }
+
+  $('#urgent').innerHTML = [...urgent, ...low].map(i => `
+    <div class="big ${i.level}">
+      <div>
+        <div class="nm">${esc(i.name)}</div>
+        <div class="st">${i.label}${i.detail ? ' &middot; ' + esc(i.detail.toUpperCase()) : ''}</div>
+        <div class="meta">${esc(i.by)} &middot; ${i.ago} &middot; ~${i.prep_min} min to make</div>
+      </div>
+      ${i.waiting >= 5 && i.unclaimed
+        ? `<div class="waitbadge">${i.waiting}m<br>WAITING</div>` : ''}
+    </div>`).join('');
+
+  $('#prep').innerHTML = prep.map(i => `
+    <div class="pchip ${i.overdue ? 'late' : ''}">
+      <span class="n">${esc(i.name)}</span>
+      <span class="cd">${i.overdue ? '&#9888; ' + esc(i.eta)
+                        : (i.eta_mins > 0 ? i.eta_mins + ' MIN' : 'READY')}</span>
+      <span class="e">${esc(i.by)}</span>
+    </div>`).join('');
+
+  if(!urgent.length && !low.length && !prep.length){
+    $('#grid').innerHTML = `<div class="allclear" style="grid-column:1/-1">ALL CLEAR
+      <span>NOTHING IS LOW OR OUT</span></div>`;
+  } else {
+    $('#grid').innerHTML = rest.map(i => `
+      <div class="cell ${i.level}${i.stale ? ' stale':''}">
+        <div class="n">${esc(i.name)}</div>
+        <div class="s">${i.level==='ready' ? 'READY' : 'GOOD'} &middot; ${i.ago}</div>
+      </div>`).join('');
+  }
+}
+
+tick();
+setInterval(tick, 2000);
+document.body.addEventListener('dblclick', () => {
+  document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
+});
+</script>
+</body>
+</html>

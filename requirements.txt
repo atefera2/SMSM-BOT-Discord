@@ -1,0 +1,17 @@
+# discord.py 2.6+ supports Python 3.13 and 3.14.
+# Older versions import the `audioop` module, which Python removed in 3.13.
+discord.py[voice]>=2.6.0
+
+# Python 3.13 deleted audioop from the standard library; this is the backport
+# discord.py's voice code needs. Ignored automatically on Python 3.12 and older.
+audioop-lts>=0.2.1; python_version >= "3.13"
+
+gTTS>=2.5.4
+python-dotenv>=1.0.1
+
+# Speech-to-text for voice messages. Optional but recommended — it's what lets a
+# spoken "two trays of koshary left" actually move the prep board. Runs entirely
+# on this laptop; no account, no API key, no audio leaves the building.
+# Adds ~400 MB of dependencies and downloads a ~150 MB model on first run.
+# Don't want it? Delete this line — voice messages still play in the kitchen.
+faster-whisper>=1.0.3

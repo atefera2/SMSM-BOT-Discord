@@ -1,0 +1,888 @@
+{
+  "festival_name": "SMSM Festival",
+  "timezone": "America/New_York",
+  "_schedule_reference": "Friday 3:00pm-9:00pm · Saturday 11:00am-9:00pm · Sunday 12:00pm-8:00pm · 350 Wheatfield Street, North Tonawanda, NY 14120",
+  "_comment_items": [
+    "STATUS LEVELS, not counts. Nobody does math. Levels are: good | low | need | prepping | out.",
+    "aliases  = every way people actually spell or say it. The parser matches on these, so misspellings still work.",
+    "screen   = true means this item shows on the BIG KITCHEN SCREEN. Keep this list short - only what the cooks fire and what runs out fast.",
+    "prep_min = roughly how many minutes a fresh batch takes. Shown to front of house so they stop asking 'how long?'."
+  ],
+  "items": [
+    {
+      "id": "koushary",
+      "name": "KOUSHARY",
+      "aliases": [
+        "koshary",
+        "koshari",
+        "kushari",
+        "kosheri",
+        "koshery",
+        "kushary",
+        "kosharee",
+        "kusheri",
+        "kosher e",
+        "koushari",
+        "kashari",
+        "cushary",
+        "kushary rice"
+      ],
+      "station": "Authentic",
+      "screen": true,
+      "prep_min": 25
+    },
+    {
+      "id": "moussaka",
+      "name": "MOUSSAKA",
+      "aliases": [
+        "mousaka",
+        "musaka",
+        "moussaka",
+        "eggplant",
+        "mousakka",
+        "musakka",
+        "mesa'aa",
+        "messaka",
+        "eggplant casserole"
+      ],
+      "station": "Authentic",
+      "screen": true,
+      "prep_min": 35
+    },
+    {
+      "id": "macaroni",
+      "name": "MAC BECHAMEL",
+      "aliases": [
+        "macaroni",
+        "bechamel",
+        "beshamel",
+        "mac",
+        "pasta",
+        "bashamel",
+        "bachamel",
+        "bashamil",
+        "beschamel",
+        "basha mel",
+        "bash a mel",
+        "becha mel",
+        "mac bechamel",
+        "macaroni bechamel",
+        "white sauce pasta"
+      ],
+      "station": "Authentic",
+      "screen": true,
+      "prep_min": 40
+    },
+    {
+      "id": "grapeleaf",
+      "name": "GRAPE LEAVES",
+      "aliases": [
+        "grape leaves",
+        "grapeleaves",
+        "warak",
+        "dolma",
+        "mahshi",
+        "warak enab",
+        "waraq enab",
+        "waranak",
+        "grape leaf",
+        "stuffed grape leaves",
+        "mahshi warak"
+      ],
+      "station": "Authentic",
+      "screen": true,
+      "prep_min": 30
+    },
+    {
+      "id": "goulash",
+      "name": "GOULASH",
+      "aliases": [
+        "goulash",
+        "gulash",
+        "phyllo",
+        "filo",
+        "ghoulash",
+        "goolash",
+        "phyllo pie",
+        "filo pie"
+      ],
+      "station": "Authentic",
+      "screen": true,
+      "prep_min": 35
+    },
+    {
+      "id": "shawarma",
+      "name": "SHAWARMA",
+      "aliases": [
+        "shawarma",
+        "shwarma",
+        "shawerma",
+        "schawarma",
+        "shawarmah",
+        "schwarma",
+        "shuwarma",
+        "sharwarma"
+      ],
+      "station": "Grill",
+      "screen": true,
+      "prep_min": 15
+    },
+    {
+      "id": "egchicken",
+      "name": "GRILLED CHICKEN",
+      "aliases": [
+        "grilled chicken",
+        "egyptian chicken",
+        "chicken thigh",
+        "half chicken",
+        "chicken thighs",
+        "quarter chicken"
+      ],
+      "station": "Grill",
+      "screen": true,
+      "prep_min": 25
+    },
+    {
+      "id": "tawook",
+      "name": "TAWOOK",
+      "aliases": [
+        "tawook",
+        "tawouk",
+        "shish tawook",
+        "shish",
+        "skewer",
+        "tawoo",
+        "shish tawouk",
+        "tauk",
+        "tawuk",
+        "chicken skewers"
+      ],
+      "station": "Grill",
+      "screen": true,
+      "prep_min": 20
+    },
+    {
+      "id": "kofta",
+      "name": "KOFTA",
+      "aliases": [
+        "kofta",
+        "kufta",
+        "kefta",
+        "koftah",
+        "kafta"
+      ],
+      "station": "Grill",
+      "screen": true,
+      "prep_min": 20
+    },
+    {
+      "id": "kebda",
+      "name": "KEBDA",
+      "aliases": [
+        "kebda",
+        "kabda",
+        "liver",
+        "eskandarani",
+        "alexandrian",
+        "kebdah",
+        "kabdah",
+        "kibda",
+        "liver sandwich",
+        "eskandarany",
+        "alexandria liver"
+      ],
+      "station": "Grill",
+      "screen": true,
+      "prep_min": 15
+    },
+    {
+      "id": "gyro",
+      "name": "GYRO",
+      "aliases": [
+        "gyro",
+        "gyros",
+        "giro",
+        "jyro",
+        "hero",
+        "euro sandwich"
+      ],
+      "station": "Grill",
+      "screen": true,
+      "prep_min": 15
+    },
+    {
+      "id": "souvlaki",
+      "name": "SOUVLAKI",
+      "aliases": [
+        "souvlaki",
+        "suvlaki",
+        "chicken souvlaki",
+        "souvlakia"
+      ],
+      "station": "Grill",
+      "screen": true,
+      "prep_min": 20
+    },
+    {
+      "id": "falafel",
+      "name": "FALAFEL",
+      "aliases": [
+        "falafel",
+        "felafel",
+        "falafal",
+        "tameya",
+        "taameya",
+        "falafil",
+        "felafil",
+        "fallafel",
+        "ta3meya",
+        "tamiya"
+      ],
+      "station": "Fryer",
+      "screen": true,
+      "prep_min": 12
+    },
+    {
+      "id": "hawawshi",
+      "name": "HAWAWSHI",
+      "aliases": [
+        "hawawshi",
+        "hawashi",
+        "hawawshy",
+        "hawashy",
+        "hawawshee",
+        "hawaii sandwich",
+        "hawaiian sandwich"
+      ],
+      "station": "Fryer",
+      "screen": true,
+      "prep_min": 20
+    },
+    {
+      "id": "fries",
+      "name": "FRIES",
+      "aliases": [
+        "fries",
+        "french fries",
+        "chips",
+        "french fry",
+        "frys",
+        "batata",
+        "potatoes"
+      ],
+      "station": "Fryer",
+      "screen": true,
+      "prep_min": 8
+    },
+    {
+      "id": "zalabia",
+      "name": "ZALABIA",
+      "aliases": [
+        "zalabia",
+        "zalabya",
+        "zlabia",
+        "donut",
+        "donuts",
+        "dough",
+        "zalabiya",
+        "zlabya",
+        "luqmat",
+        "lokmat",
+        "lokmet",
+        "loqmat el qadi",
+        "donut holes"
+      ],
+      "station": "Fryer",
+      "screen": true,
+      "prep_min": 10
+    },
+    {
+      "id": "ful",
+      "name": "FUL MEDAMES",
+      "aliases": [
+        "ful",
+        "fool",
+        "foul",
+        "fava",
+        "medames",
+        "medammes",
+        "ful medames",
+        "foul medames",
+        "fava beans",
+        "foul sandwich",
+        "fool sandwich",
+        "ful sandwich"
+      ],
+      "station": "Cold Prep",
+      "screen": true,
+      "prep_min": 20
+    },
+    {
+      "id": "hummus",
+      "name": "HUMMUS",
+      "aliases": [
+        "hummus",
+        "humus",
+        "hommos",
+        "homos",
+        "hommus",
+        "humous",
+        "chickpea dip"
+      ],
+      "station": "Cold Prep",
+      "screen": true,
+      "prep_min": 15
+    },
+    {
+      "id": "baba",
+      "name": "BABAGANOUSH",
+      "aliases": [
+        "baba",
+        "babaganoush",
+        "baba ganoush",
+        "babaghanoush",
+        "baba ganoosh",
+        "baba ghanouj",
+        "eggplant dip"
+      ],
+      "station": "Cold Prep",
+      "screen": true,
+      "prep_min": 20
+    },
+    {
+      "id": "tabouli",
+      "name": "TABOULI",
+      "aliases": [
+        "tabouli",
+        "tabbouleh",
+        "tabouleh",
+        "taboula",
+        "tabbouli",
+        "taboule",
+        "tabbouleh salad"
+      ],
+      "station": "Cold Prep",
+      "screen": true,
+      "prep_min": 20
+    },
+    {
+      "id": "rice",
+      "name": "RICE",
+      "aliases": [
+        "rice",
+        "roz",
+        "white rice",
+        "rice trays"
+      ],
+      "station": "Cold Prep",
+      "screen": true,
+      "prep_min": 30
+    },
+    {
+      "id": "salad",
+      "name": "SALAD",
+      "aliases": [
+        "salad",
+        "side salad",
+        "green salad"
+      ],
+      "station": "Cold Prep",
+      "screen": true,
+      "prep_min": 10
+    },
+    {
+      "id": "pita",
+      "name": "PITA BREAD",
+      "aliases": [
+        "pita",
+        "bread",
+        "pitas",
+        "aish",
+        "pita breads",
+        "aish baladi",
+        "flat bread",
+        "flatbread"
+      ],
+      "station": "Cold Prep",
+      "screen": true,
+      "prep_min": 5
+    },
+    {
+      "id": "baklava",
+      "name": "Baklava",
+      "aliases": [
+        "baklava",
+        "baklawa"
+      ],
+      "station": "Dessert",
+      "screen": false,
+      "prep_min": 5
+    },
+    {
+      "id": "konafa",
+      "name": "Konafa",
+      "aliases": [
+        "konafa",
+        "kunafa",
+        "kanafeh",
+        "knafeh",
+        "kanafa",
+        "kunefe",
+        "konafah"
+      ],
+      "station": "Dessert",
+      "screen": false,
+      "prep_min": 5
+    },
+    {
+      "id": "basbosa",
+      "name": "Basbosa",
+      "aliases": [
+        "basbosa",
+        "basbousa",
+        "harissa cake",
+        "basboosa",
+        "revani",
+        "semolina cake"
+      ],
+      "station": "Dessert",
+      "screen": false,
+      "prep_min": 5
+    },
+    {
+      "id": "cookies",
+      "name": "Cookies",
+      "aliases": [
+        "cookies",
+        "petitfour",
+        "petit four",
+        "goriaba",
+        "ghorayeba"
+      ],
+      "station": "Dessert",
+      "screen": false,
+      "prep_min": 5
+    },
+    {
+      "id": "ricepud",
+      "name": "Rice Pudding",
+      "aliases": [
+        "rice pudding",
+        "roz bel laban",
+        "pudding"
+      ],
+      "station": "Dessert",
+      "screen": false,
+      "prep_min": 5
+    },
+    {
+      "id": "icecream",
+      "name": "Ice Cream",
+      "aliases": [
+        "ice cream",
+        "icecream"
+      ],
+      "station": "Dessert",
+      "screen": false,
+      "prep_min": 5
+    },
+    {
+      "id": "water",
+      "name": "Bottled Water",
+      "aliases": [
+        "water",
+        "waters",
+        "bottled water"
+      ],
+      "station": "Beverage",
+      "screen": false,
+      "prep_min": 5
+    },
+    {
+      "id": "soda",
+      "name": "Soda",
+      "aliases": [
+        "soda",
+        "pop",
+        "cans",
+        "coke",
+        "sprite"
+      ],
+      "station": "Beverage",
+      "screen": false,
+      "prep_min": 5
+    },
+    {
+      "id": "juice",
+      "name": "Juice (Mango/Guava)",
+      "aliases": [
+        "juice",
+        "mango",
+        "guava"
+      ],
+      "station": "Beverage",
+      "screen": false,
+      "prep_min": 5
+    },
+    {
+      "id": "hibiscus",
+      "name": "Hibiscus / Karkade",
+      "aliases": [
+        "hibiscus",
+        "karkade",
+        "karkaday",
+        "karkadeh",
+        "red tea"
+      ],
+      "station": "Beverage",
+      "screen": false,
+      "prep_min": 15
+    },
+    {
+      "id": "lemonade",
+      "name": "Lemonade",
+      "aliases": [
+        "lemonade",
+        "pink lemonade",
+        "mint lemonade"
+      ],
+      "station": "Beverage",
+      "screen": false,
+      "prep_min": 15
+    },
+    {
+      "id": "sobia",
+      "name": "Sobia",
+      "aliases": [
+        "sobia",
+        "soubia",
+        "sobya",
+        "soobia",
+        "coconut drink"
+      ],
+      "station": "Beverage",
+      "screen": false,
+      "prep_min": 15
+    },
+    {
+      "id": "coffee",
+      "name": "Coffee / Tea",
+      "aliases": [
+        "coffee",
+        "tea",
+        "hot tea",
+        "ethiopian coffee",
+        "buna"
+      ],
+      "station": "Beverage",
+      "screen": false,
+      "prep_min": 10
+    },
+    {
+      "id": "ice",
+      "name": "Ice",
+      "aliases": [
+        "ice",
+        "ice bags",
+        "ice bag",
+        "bags of ice",
+        "more ice"
+      ],
+      "station": "Beverage",
+      "screen": false,
+      "prep_min": 5
+    },
+    {
+      "id": "trays",
+      "name": "Trays / Plates",
+      "aliases": [
+        "trays",
+        "plates",
+        "containers",
+        "clamshells",
+        "boats",
+        "tray",
+        "platters",
+        "to go containers",
+        "clam shells"
+      ],
+      "station": "Supplies",
+      "screen": false,
+      "prep_min": 5
+    },
+    {
+      "id": "utensils",
+      "name": "Utensils",
+      "aliases": [
+        "utensils",
+        "forks",
+        "spoons",
+        "knives",
+        "cutlery",
+        "utensil",
+        "sporks"
+      ],
+      "station": "Supplies",
+      "screen": false,
+      "prep_min": 5
+    },
+    {
+      "id": "napkins",
+      "name": "Napkins",
+      "aliases": [
+        "napkins",
+        "paper towels",
+        "towels",
+        "napkin",
+        "serviettes",
+        "paper towel"
+      ],
+      "station": "Supplies",
+      "screen": false,
+      "prep_min": 5
+    },
+    {
+      "id": "bags",
+      "name": "Bags",
+      "aliases": [
+        "bags",
+        "to go bags",
+        "togo bags"
+      ],
+      "station": "Supplies",
+      "screen": false,
+      "prep_min": 5
+    },
+    {
+      "id": "propane",
+      "name": "Propane",
+      "aliases": [
+        "propane",
+        "gas",
+        "tank",
+        "tanks",
+        "gas tank",
+        "propane tank",
+        "gas tanks"
+      ],
+      "station": "Supplies",
+      "screen": false,
+      "prep_min": 5
+    },
+    {
+      "id": "gloves",
+      "name": "Gloves",
+      "aliases": [
+        "gloves",
+        "hairnets"
+      ],
+      "station": "Supplies",
+      "screen": false,
+      "prep_min": 5
+    }
+  ],
+  "_comment_phrases": "How plain English maps to a status level. Add your own wording anytime - the parser is just substring matching, longest phrase wins.",
+  "phrases": {
+    "out": [
+      "out of",
+      "we're out",
+      "were out",
+      "we are out",
+      "all out",
+      "all gone",
+      "nothing left",
+      "none left",
+      "zero left",
+      "ran out",
+      "finished",
+      "empty",
+      "sold out",
+      "no more",
+      "khalas",
+      "out",
+      "gone",
+      "none"
+    ],
+    "need": [
+      "need more",
+      "need now",
+      "need asap",
+      "asap",
+      "right now",
+      "hurry",
+      "rush",
+      "urgent",
+      "almost out",
+      "about to run out",
+      "running out",
+      "last tray",
+      "last pan",
+      "last one",
+      "down to one",
+      "send more",
+      "bring more",
+      "we need",
+      "need",
+      "needs",
+      "bring",
+      "send"
+    ],
+    "low": [
+      "getting low",
+      "running low",
+      "low on",
+      "half a",
+      "half pan",
+      "half tray",
+      "couple left",
+      "couple of",
+      "few left",
+      "getting close",
+      "starting to go",
+      "not much left",
+      "low",
+      "left"
+    ],
+    "prepping": [
+      "prepping",
+      "prepping now",
+      "on it",
+      "firing",
+      "making more",
+      "making",
+      "started",
+      "in the oven",
+      "on the grill",
+      "working on it",
+      "got it",
+      "coming up"
+    ],
+    "ready": [
+      "ready",
+      "coming out",
+      "it's up",
+      "its up",
+      "fresh batch",
+      "batch is ready",
+      "bringing",
+      "on the way",
+      "delivered",
+      "done"
+    ],
+    "good": [
+      "we're good",
+      "were good",
+      "we are good",
+      "good on",
+      "all good",
+      "fine on",
+      "we're fine",
+      "plenty",
+      "fully stocked",
+      "stocked",
+      "topped up",
+      "no worries",
+      "no need",
+      "cancel that",
+      "disregard",
+      "never mind",
+      "nevermind",
+      "false alarm",
+      "fine",
+      "okay",
+      "ok on",
+      "okay on",
+      "we're set",
+      "were set",
+      "set on",
+      "don't need",
+      "dont need",
+      "we're covered",
+      "covered on"
+    ]
+  },
+  "_comment_defaults": "If a message names an item but no phrase matches, this is the level assumed. 'low' is the safe default - a mention is usually a heads-up.",
+  "default_level": "low",
+  "_comment_roles": "Role NAMES exactly as they appear in Discord. /setup_server creates any that are missing.",
+  "roles": {
+    "admin": "Festival Lead",
+    "manager": "Ops Manager",
+    "kitchen": "Kitchen",
+    "front": "Front of House",
+    "runner": "Runner",
+    "volunteer": "Volunteer",
+    "vendor": "Vendor"
+  },
+  "channels": {
+    "requests": "kitchen-requests",
+    "board": "prep-board",
+    "kitchen_text": "kitchen-comms",
+    "ops": "ops-command",
+    "incidents": "incidents",
+    "supply": "supply-runs",
+    "shifts": "shift-check-in",
+    "log": "audit-log",
+    "announcements": "announcements",
+    "welcome": "start-here"
+  },
+  "_comment_voice": [
+    "kitchen_vc = the channel the ROOM SPEAKER sits in. That device must have its microphone disabled - see the guide's audio section.",
+    "Anyone who needs to TALK uses a headset on push-to-talk, never the room speaker's device.",
+    "repeat_urgent = say NEED NOW and OUT announcements twice, because kitchens are loud."
+  ],
+  "voice": {
+    "kitchen_vc": "KITCHEN SPEAKER",
+    "foh_vc": "FRONT OF HOUSE SPEAKER",
+    "language": "en",
+    "slow": false,
+    "auto_join_on_start": true,
+    "attention_prefix": "Kitchen.",
+    "repeat_urgent": 2,
+    "speak_levels": [
+      "need",
+      "out",
+      "low"
+    ],
+    "announce_incidents": true,
+    "announce_supply_runs": true
+  },
+  "_comment_voice_input": [
+    "Hold the mic button in the Discord message box, talk, release. The bot plays your recording through the kitchen speaker.",
+    "play_recording = play the actual voice clip. Always works, needs nothing installed.",
+    "transcribe     = ALSO convert it to text so the prep board updates and it lands in the memory bank.",
+    "                 Needs faster-whisper:  ./.venv/bin/pip install faster-whisper",
+    "                 Runs entirely on the laptop. No account, no API key, no audio leaves the building.",
+    "model          = tiny.en (fastest) | base.en (recommended) | small.en (most accurate, slower)",
+    "max_seconds    = ignore clips longer than this so nobody monopolizes the speaker."
+  ],
+  "voice_input": {
+    "play_recording": true,
+    "announce_after_recording": true,
+    "transcribe": true,
+    "model": "base.en",
+    "language": "en",
+    "target": "kitchen",
+    "max_seconds": 45
+  },
+  "_comment_dashboard": "Big-screen dashboards served by the bot itself. Open these in a browser on the kitchen TV and the command center screen.",
+  "dashboard": {
+    "enabled": true,
+    "port": 8080,
+    "refresh_seconds": 2,
+    "kitchen_columns": 4,
+    "stale_minutes": 45
+  },
+  "behavior": {
+    "board_refresh_seconds": 20,
+    "request_cooldown_seconds": 0,
+    "admin_requires_role": [
+      "Ops Manager",
+      "Festival Lead"
+    ],
+    "nag_minutes": 7,
+    "nag_max": 3,
+    "overdue_grace_minutes": 3,
+    "announce_overdue": true,
+    "max_spoken_items": 5
+  }
+}
